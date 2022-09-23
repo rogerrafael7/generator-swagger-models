@@ -165,9 +165,14 @@ const exec = async () => {
 
 exec()
   .then(() => {
-    spawn(`eslint -c ${path.resolve(__dirname, '../.eslintrc.js')} --fix ${pathModels}/**/*.ts`, {
+    const handler = spawn(`eslint -c ${path.resolve(__dirname, '../.eslintrc.js')} --fix ${pathModels}/**/*.ts`, {
       shell: true,
       cwd: process.cwd(),
       stdio: 'inherit'
+    })
+    // error
+    handler.on('error', (err) => {
+      console.error(err)
+      process.exit(1)
     })
   })
