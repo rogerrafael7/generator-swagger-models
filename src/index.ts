@@ -165,8 +165,9 @@ const exec = async () => {
 
 exec()
   .then(() => {
-    spawn(`eslint --fix ${pathModels}/**/*.ts`, {
+    spawn(`eslint -c ${path.resolve(__dirname, '../.eslintrc.js')} --fix ${pathModels}/**/*.ts`, {
       shell: true,
+      cwd: process.cwd(),
       stdio: 'inherit'
     })
   })
