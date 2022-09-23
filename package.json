@@ -1,4 +1,6 @@
 {
+  "version": "1.0.0",
+  "name": "generator-swagger-models-ts",
   "scripts": {
     "generator:sample": "ts-node src/index.ts ./sample-swagger-data.json ./sample",
     "generator": "ts-node src/index.ts"
