@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "generator:start": "ts-node src/index.ts ./sample-swagger-data.json ./sample"
+    "generator:sample": "ts-node src/index.ts ./sample-swagger-data.json ./sample",
+    "generator": "ts-node src/index.ts"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.93",
