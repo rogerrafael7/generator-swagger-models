@@ -1,0 +1,1370 @@
+{
+  "basePath": "/spe-ext-onboarding",
+  "definitions": {
+    "PersonalDataRequest": {
+      "description": "",
+      "properties": {
+        "birthDay": {
+          "type": "string",
+          "description": ""
+        },
+        "marital": {
+          "type": "string",
+          "description": ""
+        },
+        "motherName": {
+          "type": "string",
+          "description": ""
+        },
+        "monthlyIncome": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "birthDay",
+        "marital",
+        "motherName",
+        "monthlyIncome"
+      ]
+    },
+    "SimplifiedAddressDataRequest": {
+      "description": "",
+      "properties": {
+        "postalCode": {
+          "type": "string",
+          "description": ""
+        },
+        "street": {
+          "type": "string",
+          "description": ""
+        },
+        "streetNumber": {
+          "type": "string",
+          "description": ""
+        },
+        "streetComplement": {
+          "type": "string",
+          "description": ""
+        },
+        "neighborhood": {
+          "type": "string",
+          "description": ""
+        },
+        "city": {
+          "type": "string",
+          "description": ""
+        },
+        "uf": {
+          "type": "string",
+          "description": ""
+        },
+        "country": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "postalCode",
+        "street",
+        "streetNumber",
+        "streetComplement",
+        "neighborhood",
+        "city",
+        "uf",
+        "country"
+      ]
+    },
+    "SimplifiedCompanyAddressRequest": {
+      "description": "usado apenas em cadastro de pessoa jurídica e mei",
+      "properties": {
+        "postalCode": {
+          "type": "string",
+          "description": ""
+        },
+        "address": {
+          "type": "string",
+          "description": ""
+        },
+        "numberAddress": {
+          "type": "string",
+          "description": ""
+        },
+        "complementAddress": {
+          "type": "string",
+          "description": ""
+        },
+        "neighborhood": {
+          "type": "string",
+          "description": ""
+        },
+        "city": {
+          "type": "string",
+          "description": ""
+        },
+        "uf": {
+          "type": "string",
+          "description": ""
+        },
+        "country": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "postalCode",
+        "address",
+        "numberAddress",
+        "complementAddress",
+        "neighborhood",
+        "city",
+        "uf",
+        "country"
+      ]
+    },
+    "CompanyDataRequest": {
+      "description": "usado apenas em cadastro de pessoa jurídica e mei",
+      "properties": {
+        "cnpj": {
+          "type": "string",
+          "description": ""
+        },
+        "fantasyName": {
+          "type": "string",
+          "description": ""
+        },
+        "companyName": {
+          "type": "string",
+          "description": ""
+        },
+        "establishmentDate": {
+          "type": "string",
+          "description": ""
+        },
+        "turnoverAverage": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        },
+        "phone": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "cnpj",
+        "fantasyName",
+        "companyName",
+        "establishmentDate",
+        "turnoverAverage",
+        "phone"
+      ]
+    },
+    "BusinessPartnerRequest": {
+      "description": "",
+      "properties": {
+        "fullname": {
+          "type": "string",
+          "description": ""
+        },
+        "docNumber": {
+          "type": "string",
+          "description": ""
+        },
+        "legalRepresentative": {
+          "type": "boolean",
+          "description": ""
+        },
+        "attorney": {
+          "type": "boolean",
+          "description": ""
+        },
+        "partner": {
+          "type": "boolean",
+          "description": ""
+        },
+        "master": {
+          "type": "boolean",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "fullname",
+        "docNumber",
+        "legalRepresentative",
+        "attorney",
+        "partner",
+        "master"
+      ]
+    },
+    "ProfessionalTypeRequest": {
+      "description": "usado apenas no cadastro de profissional liberal",
+      "properties": {
+        "certifiedType": {
+          "type": "string",
+          "description": ""
+        },
+        "certifiedNumber": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "certifiedType",
+        "certifiedNumber"
+      ]
+    },
+    "SimplefiedOnboardingRequest": {
+      "description": "",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "cpf": {
+          "type": "string",
+          "description": ""
+        },
+        "rg": {
+          "type": "string",
+          "description": ""
+        },
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "phone": {
+          "type": "string",
+          "description": ""
+        },
+        "personalData": {
+          "$ref": "#/definitions/PersonalDataRequest"
+        },
+        "addressData": {
+          "$ref": "#/definitions/SimplifiedAddressDataRequest"
+        },
+        "companyAddress": {
+          "$ref": "#/definitions/SimplifiedCompanyAddressRequest"
+        },
+        "companyData": {
+          "$ref": "#/definitions/CompanyDataRequest"
+        },
+        "businessPartner": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessPartnerRequest"
+          },
+          "description": "usado apenas em cadastro de pessoa jurídica"
+        },
+        "professionalType": {
+          "$ref": "#/definitions/ProfessionalTypeRequest"
+        },
+        "accountType": {
+          "type": "string",
+          "enum": [
+            "Pessoa Física",
+            "Pessoa Jurídica",
+            "Mei",
+            "Profissional Liberal"
+          ],
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "name",
+        "cpf",
+        "rg",
+        "email",
+        "phone",
+        "personalData",
+        "addressData",
+        "accountType"
+      ]
+    },
+    "PersonalDataDto": {
+      "description": "",
+      "properties": {
+        "birthDay": {
+          "type": "string",
+          "description": ""
+        },
+        "marital": {
+          "type": "string",
+          "description": ""
+        },
+        "motherName": {
+          "type": "string",
+          "description": ""
+        },
+        "monthlyIncome": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "birthDay",
+        "marital",
+        "motherName",
+        "monthlyIncome"
+      ]
+    },
+    "AddressDataDto": {
+      "description": "",
+      "properties": {
+        "cep": {
+          "type": "string",
+          "description": ""
+        },
+        "street": {
+          "type": "string",
+          "description": ""
+        },
+        "streetNumber": {
+          "type": "string",
+          "description": ""
+        },
+        "streetComplement": {
+          "type": "string",
+          "description": ""
+        },
+        "neighborhood": {
+          "type": "string",
+          "description": ""
+        },
+        "city": {
+          "type": "string",
+          "description": ""
+        },
+        "uf": {
+          "type": "string",
+          "description": ""
+        },
+        "country": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "cep",
+        "street",
+        "streetNumber",
+        "streetComplement",
+        "neighborhood",
+        "city",
+        "uf",
+        "country"
+      ]
+    },
+    "ContactDataDto": {
+      "description": "",
+      "properties": {
+        "celPhone": {
+          "type": "string",
+          "description": ""
+        },
+        "email": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "celPhone",
+        "email"
+      ]
+    },
+    "CompanyAddressDto": {
+      "description": "",
+      "properties": {
+        "postalCode": {
+          "type": "string",
+          "description": ""
+        },
+        "address": {
+          "type": "string",
+          "description": ""
+        },
+        "numberAddress": {
+          "type": "string",
+          "description": ""
+        },
+        "complementAddress": {
+          "type": "string",
+          "description": ""
+        },
+        "neighborhood": {
+          "type": "string",
+          "description": ""
+        },
+        "cityAddress": {
+          "type": "string",
+          "description": ""
+        },
+        "uf": {
+          "type": "string",
+          "description": ""
+        },
+        "country": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "postalCode",
+        "address",
+        "numberAddress",
+        "complementAddress",
+        "neighborhood",
+        "cityAddress",
+        "uf",
+        "country"
+      ]
+    },
+    "CompanyDataDto": {
+      "description": "",
+      "properties": {
+        "cnpj": {
+          "type": "string",
+          "description": ""
+        },
+        "fantasyName": {
+          "type": "string",
+          "description": ""
+        },
+        "companyName": {
+          "type": "string",
+          "description": ""
+        },
+        "establishmentDate": {
+          "type": "string",
+          "description": ""
+        },
+        "turnoverAverage": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        },
+        "phone": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "cnpj",
+        "fantasyName",
+        "companyName",
+        "establishmentDate",
+        "turnoverAverage",
+        "phone"
+      ]
+    },
+    "ContractModelDto": {
+      "description": "",
+      "properties": {
+        "acceptContract": {
+          "type": "boolean",
+          "description": ""
+        },
+        "dataAccept": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "acceptContract",
+        "dataAccept"
+      ]
+    },
+    "BusinessPartnerDto": {
+      "description": "",
+      "properties": {
+        "fullname": {
+          "type": "string",
+          "description": ""
+        },
+        "docNumber": {
+          "type": "string",
+          "description": ""
+        },
+        "legalRepresentative": {
+          "type": "boolean",
+          "description": ""
+        },
+        "attorney": {
+          "type": "boolean",
+          "description": ""
+        },
+        "partner": {
+          "type": "boolean",
+          "description": ""
+        },
+        "master": {
+          "type": "boolean",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "fullname",
+        "docNumber",
+        "legalRepresentative",
+        "attorney",
+        "partner",
+        "master"
+      ]
+    },
+    "ProfessionalTypeDto": {
+      "description": "",
+      "properties": {
+        "certifiedType": {
+          "type": "string",
+          "description": ""
+        },
+        "certifiedNumber": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "certifiedType",
+        "certifiedNumber"
+      ]
+    },
+    "PasswordDataDto": {
+      "description": "",
+      "properties": {
+        "password": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "password"
+      ]
+    },
+    "UploadDto": {
+      "description": "",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": ""
+        },
+        "uploadType": {
+          "type": "string",
+          "description": ""
+        },
+        "positionPhoto": {
+          "type": "string",
+          "description": ""
+        },
+        "fileName": {
+          "type": "string",
+          "description": ""
+        },
+        "path": {
+          "type": "string",
+          "description": ""
+        },
+        "host": {
+          "type": "string",
+          "description": ""
+        },
+        "fileUrl": {
+          "type": "string",
+          "description": ""
+        },
+        "fileType": {
+          "type": "string",
+          "description": ""
+        },
+        "fileBase64": {
+          "type": "string",
+          "description": ""
+        },
+        "dateRegister": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        },
+        "status": {
+          "type": "string",
+          "description": ""
+        },
+        "ownership": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "id",
+        "uploadType",
+        "positionPhoto",
+        "fileName",
+        "path",
+        "host",
+        "fileUrl",
+        "fileType",
+        "fileBase64",
+        "dateRegister",
+        "status",
+        "ownership"
+      ]
+    },
+    "DeviceValidationDto": {
+      "description": "",
+      "properties": {
+        "phone": {
+          "type": "string",
+          "description": ""
+        },
+        "code": {
+          "type": "string",
+          "description": ""
+        },
+        "dateRegister": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "phone",
+        "code",
+        "dateRegister"
+      ]
+    },
+    "ComercialAgentDto": {
+      "description": "",
+      "properties": {
+        "nameAgent": {
+          "type": "string",
+          "description": ""
+        },
+        "cpfAgent": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "nameAgent",
+        "cpfAgent"
+      ]
+    },
+    "AccountPaymentTypeDto": {
+      "description": "",
+      "properties": {
+        "transactionId": {
+          "type": "string",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "description": {
+          "type": "string",
+          "description": ""
+        },
+        "status": {
+          "type": "string",
+          "description": ""
+        },
+        "level": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        },
+        "typeFlow": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "transactionId",
+        "name",
+        "description",
+        "status",
+        "level",
+        "typeFlow"
+      ]
+    },
+    "AnalysisAccountDto": {
+      "description": "",
+      "properties": {
+        "reason": {
+          "type": "string",
+          "description": ""
+        },
+        "note": {
+          "type": "string",
+          "description": ""
+        },
+        "nameUserAnalysis": {
+          "type": "string",
+          "description": ""
+        },
+        "emailUserAnalysis": {
+          "type": "string",
+          "description": ""
+        },
+        "dateRegister": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "reason",
+        "note",
+        "nameUserAnalysis",
+        "emailUserAnalysis"
+      ]
+    },
+    "OnboardingDto": {
+      "description": "",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": ""
+        },
+        "transactionId": {
+          "type": "string",
+          "description": ""
+        },
+        "uuidWhiteLabel": {
+          "type": "string",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "cpf": {
+          "type": "string",
+          "description": ""
+        },
+        "rg": {
+          "type": "string",
+          "description": ""
+        },
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "phone": {
+          "type": "string",
+          "description": ""
+        },
+        "lastStep": {
+          "type": "string",
+          "description": ""
+        },
+        "personalData": {
+          "$ref": "#/definitions/PersonalDataDto"
+        },
+        "addressData": {
+          "$ref": "#/definitions/AddressDataDto"
+        },
+        "contactData": {
+          "$ref": "#/definitions/ContactDataDto"
+        },
+        "companyAddress": {
+          "$ref": "#/definitions/CompanyAddressDto"
+        },
+        "companyData": {
+          "$ref": "#/definitions/CompanyDataDto"
+        },
+        "contractModel": {
+          "$ref": "#/definitions/ContractModelDto"
+        },
+        "businessPartner": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessPartnerDto"
+          },
+          "description": ""
+        },
+        "professionalType": {
+          "$ref": "#/definitions/ProfessionalTypeDto"
+        },
+        "passwordData": {
+          "$ref": "#/definitions/PasswordDataDto"
+        },
+        "uploads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UploadDto"
+          },
+          "description": ""
+        },
+        "deviceValidation": {
+          "$ref": "#/definitions/DeviceValidationDto"
+        },
+        "comercialAgentData": {
+          "$ref": "#/definitions/ComercialAgentDto"
+        },
+        "accountType": {
+          "$ref": "#/definitions/AccountPaymentTypeDto"
+        },
+        "analysis": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AnalysisAccountDto"
+          },
+          "description": ""
+        },
+        "dateRegister": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        },
+        "dateUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": ""
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "IN_ONBORDING",
+            "IN_ANALYSIS_COMPLIANCE",
+            "APPROVED_COMPLIANCE",
+            "IN_ANALYSIS_BACKOFFICE",
+            "APPROVED_BACKOFFICE",
+            "IN_ANALYSIS_TOPAZIO",
+            "APPROVED_TOPAZIO",
+            "FINISHED",
+            "REPROVED",
+            "DOCUMENT_PHYSICAL_PERSON_REPROVED",
+            "DOCUMENT_LEGAL_PERSON_REPROVED",
+            "REGISTRATION_DATA_PHYSICAL_PERSON_INVALID",
+            "REGISTRATION_DATA_LEGAL_PERSON_INVALID",
+            "PENDENT"
+          ],
+          "description": ""
+        },
+        "levelRisk": {
+          "type": "string",
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "NO_CLASSIFICATION"
+          ],
+          "description": ""
+        },
+        "deleted": {
+          "type": "boolean",
+          "description": ""
+        },
+        "isMigration": {
+          "type": "boolean",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "_id",
+        "transactionId",
+        "uuidWhiteLabel",
+        "name",
+        "cpf",
+        "rg",
+        "email",
+        "phone",
+        "lastStep",
+        "personalData",
+        "addressData",
+        "contactData",
+        "companyAddress",
+        "companyData",
+        "contractModel",
+        "businessPartner",
+        "professionalType",
+        "passwordData",
+        "uploads",
+        "deviceValidation",
+        "comercialAgentData",
+        "accountType",
+        "analysis",
+        "dateRegister",
+        "dateUpdate",
+        "status",
+        "levelRisk",
+        "deleted",
+        "isMigration"
+      ]
+    },
+    "Errors.NotFoundError": {
+      "description": "Represents a NOT FOUND error. The server has not found anything matching\nthe Request-URI. No indication is given of whether the condition is temporary\nor permanent. The 410 (GoneError) status code SHOULD be used if the server knows,\nthrough some internally configurable mechanism, that an old resource is permanently\nunavailable and has no forwarding address.\n\nThis error is commonly used when\nthe server does not wish to reveal exactly why the request has been refused,\nor when no other response is applicable.",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": ""
+        },
+        "statusCode": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "stack": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "message",
+        "statusCode",
+        "name"
+      ]
+    },
+    "Errors.BadRequestError": {
+      "description": "Represents a BAD REQUEST error. The request could not be understood by the\nserver due to malformed syntax. The client SHOULD NOT repeat the request\nwithout modifications.",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": ""
+        },
+        "statusCode": {
+          "type": "number",
+          "format": "double",
+          "description": ""
+        },
+        "name": {
+          "type": "string",
+          "description": ""
+        },
+        "stack": {
+          "type": "string",
+          "description": ""
+        }
+      },
+      "type": "object",
+      "required": [
+        "message",
+        "statusCode",
+        "name"
+      ]
+    },
+    "SimplifiedUploadRequest": {
+      "description": "",
+      "properties": {
+        "uploadType": {
+          "type": "string",
+          "description": ""
+        },
+        "positionPhoto": {
+          "type": "string",
+          "description": ""
+        },
+        "fileBase64": {
+          "type": "string",
+          "description": "DataUrl (Base64) do arquivo(Arquivos do tipo .jpg, .png, .pdf). Ex: data:[mediatype][;base64],data"
+        },
+        "ownership": {
+          "type": "string",
+          "description": "usado apenas caso uploadType seja igual a RESIDENCIAL_CERTIFICATE ou PROFESSIONAL_CERTIFICATE"
+        }
+      },
+      "type": "object",
+      "required": [
+        "uploadType",
+        "positionPhoto",
+        "fileBase64"
+      ]
+    }
+  },
+  "info": {
+    "description": "API MAPPING LogBank Bank as a Services",
+    "license": {
+      "name": "MIT"
+    },
+    "title": "Onboarding Api",
+    "version": "0.5.7-beta.2"
+  },
+  "paths": {
+    "/v1/": {
+      "post": {
+        "operationId": "OnboardingResourcesSimplifiedRegister",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Caso de sucesso",
+            "examples": {
+              "application/json": {
+                "onboardingId": "631778159178fd17f72e04b6"
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Caso de falha",
+            "examples": {
+              "application/json": {
+                "message": "Descrição do erro"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno"
+          }
+        },
+        "description": "",
+        "summary": "criar um onboarding com payload simplificado",
+        "tags": [
+          "Onboarding"
+        ],
+        "security": [
+          {
+            "default": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "onboardingRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SimplefiedOnboardingRequest"
+            }
+          },
+          {
+            "description": "campo preenchido automaticamente.",
+            "in": "header",
+            "name": "x-request-uwl",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/v1/{onboardingId}": {
+      "put": {
+        "operationId": "OnboardingResourcesUpdateSimplifiedRegister",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Caso de sucesso",
+            "examples": {
+              "application/json": {}
+            }
+          },
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Caso de falha",
+            "examples": {
+              "application/json": {
+                "message": "Descrição do erro"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno"
+          }
+        },
+        "description": "",
+        "summary": "Atualizar onboarding",
+        "tags": [
+          "Onboarding"
+        ],
+        "security": [
+          {
+            "default": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "onboardingRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SimplefiedOnboardingRequest"
+            }
+          },
+          {
+            "description": "",
+            "in": "path",
+            "name": "onboardingId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "campo preenchido automaticamente",
+            "in": "header",
+            "name": "x-request-uwl",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "operationId": "OnboardingResourcesFindById",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Caso de sucesso",
+            "examples": {
+              "application/json": {
+                "uploads": [],
+                "analysis": [],
+                "interest": [],
+                "historyTransactionId": [],
+                "_id": "631a2a45e452920012e2c7ea",
+                "uuidAccountPayment": "4e7a7d62-985a-4480-adc8-3f4fd7f2e001",
+                "accountNumber": "1234567",
+                "name": "exemplo",
+                "cpf": "819.205.480-25",
+                "rg": "123434353",
+                "email": "email@gmail.com",
+                "personalData": {
+                  "birthDay": "2000-05-25",
+                  "marital": "string, contendo as opções: MARRIED, DIVORCED, SINGLE e WIDOWED",
+                  "motherName": "Nome da mãe",
+                  "monthlyIncome": "50.000,45"
+                },
+                "deviceValidation": {
+                  "phone": "(61) 93959-3453",
+                  "code": "66154",
+                  "dateRegister": "2022-05-28"
+                },
+                "accountType": {
+                  "transactionId": "3caf3a3e-e4a6-651c-2ecd-df3fabfe1e2d",
+                  "name": "Pessoa Física",
+                  "description": "Tipo de conta para pessoa física",
+                  "typeFlow": "string, podendo conter as opções PHHYSICAL_PERSON, LEGAL_PERSON, MEI e LIBERAL_PROFESSIONAL",
+                  "level": 1,
+                  "status": "ACTIVE"
+                },
+                "dateRegister": "2022-09-08T17:45:41.298Z",
+                "dateUpdate": "2022-09-08T17:45:41.298Z",
+                "status": "string, podendo ter os status: IN_ONBORDING, IN_ANALYSIS_COMPLIANCE, APPROVED_COMPLIANCE, IN_ANALYSIS_BACKOFFICE, APPROVED_BACKOFFICE, IN_ANALYSIS_TOPAZIO, APPROVED_TOPAZIO, FINISHED, REPROVED, DOCUMENT_PHYSICAL_PERSON_REPROVED, DOCUMENT_LEGAL_PERSON_REPROVED, REGISTRATION_DATA_PHYSICAL_PERSON_INVALID, REGISTRATION_DATA_LEGAL_PERSON_INVALID,e PENDENT",
+                "levelRisk": "string, podendo ter as opções: HIGH, MEDIUM, LOW e NO_CLASSIFICATION",
+                "addressData": {
+                  "cep": "13550-000",
+                  "street": "Rua Castro da  Silva",
+                  "streetNumber": "225",
+                  "streetComplement": "",
+                  "neighborhood": "Cidade Jardim",
+                  "city": "Santa Catarina",
+                  "uf": "SP",
+                  "country": "br"
+                },
+                "businessPartner": [],
+                "comercialAgentData": {
+                  "nameAgent": "",
+                  "cpfAgent": ""
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Caso de falha",
+            "schema": {
+              "$ref": "#/definitions/Errors.BadRequestError"
+            }
+          },
+          "404": {
+            "description": "Caso de falha",
+            "schema": {
+              "$ref": "#/definitions/Errors.NotFoundError"
+            }
+          }
+        },
+        "description": "Consulta um onboarding específico por id",
+        "summary": "Consultar onboarding",
+        "tags": [
+          "Onboarding"
+        ],
+        "security": [
+          {
+            "default": []
+          }
+        ],
+        "parameters": [
+          {
+            "description": "id do onboarding",
+            "in": "path",
+            "name": "onboardingId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/v1/{onboardingId}/document": {
+      "post": {
+        "operationId": "OnboardingResourcesSaveDocument",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Caso de sucesso",
+            "examples": {
+              "application/json": {
+                "id": "ccac2c20-3435-11ed-bc75-a705363887f2",
+                "uploadType": "RG",
+                "positionPhoto": "FRONT",
+                "fileName": "cd0ee590-3435-11ed-bc75-a705363887f2_rg_5f1485c8-dd8e-466e-8aa8-30b43fb51eef.pdf",
+                "fileUrl": "https://wlponboardinghmg.blob.core.windows.net/63217d92e452920012e2c8f5/cd0ee590-3435-11ed-bc75-a705363887f2_rg_5f1485c8-dd8e-466e-8aa8-30b43fb51eef.pdf",
+                "fileType": "application/pdf",
+                "dateRegister": "2022-09-14T14:01:59.010Z",
+                "status": "ACTIVE"
+              }
+            }
+          },
+          "400": {
+            "description": "Caso de falha",
+            "examples": {
+              "application/json": {
+                "message": "Descrição do erro"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno"
+          }
+        },
+        "description": "# Referências:</br>\n## DataUrl: </br>\n- https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs\n- https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types\n- https://www.base64-image.de",
+        "summary": "Upload de documentos.",
+        "tags": [
+          "Documento"
+        ],
+        "security": [
+          {
+            "default": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "path",
+            "name": "onboardingId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "",
+            "in": "body",
+            "name": "upload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SimplifiedUploadRequest"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/{onboardingId}/complete": {
+      "post": {
+        "operationId": "OnboardingResourcesComplete",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Caso de sucesso",
+            "examples": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Caso de falha",
+            "examples": {
+              "application/json": {
+                "message": "Descrição do erro"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno"
+          }
+        },
+        "description": "",
+        "summary": "Finalização de cadastro",
+        "tags": [
+          "Onboarding"
+        ],
+        "security": [
+          {
+            "default": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "path",
+            "name": "onboardingId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "securityDefinitions": {
+    "default": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ]
+}
